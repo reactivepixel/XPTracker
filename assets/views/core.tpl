@@ -8,9 +8,12 @@
 
 
 <ul class="list-group">
-  <li ng-repeat="student in Students" class="list-group-item">	{{student.name}}
+  <li ng-repeat="student in Students" class="list-group-item">	
 
-		<button ng-click="addNoteToStudent({ student : student })">+ Note</button>
+    	<span class="badge">{{student.totalXP}}</span>
+  		{{student.name}}
+
+		<button ng-click="addXPToStudent({ student : student })">+ XP</button>
   </li>
 </ul>
 
