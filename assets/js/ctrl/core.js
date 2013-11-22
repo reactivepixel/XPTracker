@@ -5,12 +5,21 @@ App.controller('CtrlCore', ['$scope', function( $scope ){
 App.controller('CtrlStudent', ['$scope', '$routeParams', '$firebase', function( $scope, $routeParams, $firebase ){
 	$scope.studentName = $routeParams.name;
 
-	//Firebase Connection
+	//3 way data binding that syncs to Firebase as soon as we modify the objec locally
 	var url = 'https://xp-tracker.firebaseio.com/students';
-	$scope.fb = $firebase(new Firebase(url));
+	var sync = $firebase(new Firebase(url)).$bind($scope, 'Students');
 
 	$scope.addStudent = function () {
-		$scope.fb.$add({name: $scope.StudentName});
+		$scope.Students.$add({
+			name 	: $scope.StudentName,
+			id 		: $scope.StudentID
+		});
 		$scope.StudentName = "";
 	}
+	
+	$scope.addNoteToStudent = function (args) {
+		
+		args.student.note = "You pinned a note to me!";
+	}
+
 }]);
