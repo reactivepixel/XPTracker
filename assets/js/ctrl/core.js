@@ -1,15 +1,28 @@
-App.controller('CtrlCore', ['$scope', function( $scope ){
+App.controller('CtrlCore', ['$scope', '$firebase', function( $scope, $firebase ){
 	$scope.title = "XP Tracker";
+
+	var url = 'https://xp-tracker.firebaseio.com/students';
+	var sync = $firebase(new Firebase(url)).$bind($scope, 'Students');
+
+}]);
+
+App.controller('CtrlStudentDetail', ['$scope', '$routeParams', '$firebase', function( $scope, $routeParams, $firebase ){
+	
+	var targetID = $routeParams.id;
+	console.log($scope.Students);
+
+	$scope.Students
+
+
+
 }]);
 
 App.controller('CtrlStudent', ['$scope', '$routeParams', '$firebase', function( $scope, $routeParams, $firebase ){
 	// $scope.Students = [{force:"Static"}] // Needed for first entry in the DB when set to Implict Syncing
-	$scope.studentName = $routeParams.name;
+	$scope.studentName = $routeParams.id;
 
 	//3 way data binding that syncs to Firebase as soon as we modify the objec locally
-	var url = 'https://xp-tracker.firebaseio.com/students';
-	var sync = $firebase(new Firebase(url)).$bind($scope, 'Students');
-
+	
 	$scope.addStudent = function () {
 		// Add a Student
 		$scope.Students.$add({

@@ -11,7 +11,7 @@
   <li ng-repeat="student in Students" class="list-group-item">	
 
     	<span class="badge">{{student.totalXP}}</span>
-  		{{student.name}}
+  		<a ng-href="#/student/{{student.id}}">{{student.name}}</a> 
 
 		<button ng-click="addXPToStudent({ student : student })">+ XP</button>
   </li>

@@ -11,9 +11,9 @@ var App = angular.module('AppCore', ['ngRoute', 'firebase'])
 			})
 
 			// Student Detail Page
-			.when('/student/:name', {
+			.when('/student/:id', {
 				templateUrl: 	'assets/views/detail.tpl',
-				controller: 	'CtrlStudent'
+				controller: 	'CtrlStudentDetail'
 			})
 
 
