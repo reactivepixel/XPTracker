@@ -1,10 +1,13 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en-US" ng-app="AppCore">
 	<head>
 		<title>Howdy World</title>
 		
 		<!-- Bootstrap CDN -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+		<!-- AngularJS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 
 		<!-- Local JS's -->
 		<script src="assets/js/config.js"></script>
@@ -15,7 +18,8 @@
 	<body>
 
 		<div class="container">
-			<h1>Howdy World</h1>
+			<h1>Howdy World -- {{Name}}</h1>
+			<input ng-model="Name" />
 		</div>
 		
 	</body>
