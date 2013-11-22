@@ -10,6 +10,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
 
+		<!-- Firebase + AngularFire -->
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/0.5.0-rc1/angularfire.js"></script>
+
 		<!-- Local JS's -->
 		<script src="assets/js/config.js"></script>
 		<script src="assets/js/ctrl/core.js"></script>
@@ -19,7 +23,7 @@
 	</head>
 	<body>
 
-		<div class="container">
+		<div ng-controller="CtrlCore" class="container">
 
 			<!-- Partials are Injected Here -->
 			<div ng-view></div>

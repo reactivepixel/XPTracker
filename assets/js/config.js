@@ -1,4 +1,4 @@
-var App = angular.module('AppCore', ['ngRoute'])
+var App = angular.module('AppCore', ['ngRoute', 'firebase'])
 	
 	.config(['$routeProvider', function (r) {
 
@@ -7,7 +7,7 @@ var App = angular.module('AppCore', ['ngRoute'])
 			// Index
 			.when('/', {
 				templateUrl: 	'assets/views/core.tpl',
-				controller: 	'CtrlCore'
+				controller: 	'CtrlStudent'
 			})
 
 			// Student Detail Page
