@@ -3,6 +3,7 @@ App.controller('CtrlCore', ['$scope', function( $scope ){
 }]);
 
 App.controller('CtrlStudent', ['$scope', '$routeParams', '$firebase', function( $scope, $routeParams, $firebase ){
+	// $scope.Students = [{force:"Static"}] // Needed for first entry in the DB when set to Implict Syncing
 	$scope.studentName = $routeParams.name;
 
 	//3 way data binding that syncs to Firebase as soon as we modify the objec locally
@@ -10,7 +11,6 @@ App.controller('CtrlStudent', ['$scope', '$routeParams', '$firebase', function( 
 	var sync = $firebase(new Firebase(url)).$bind($scope, 'Students');
 
 	$scope.addStudent = function () {
-
 		// Add a Student
 		$scope.Students.$add({
 			name 	: $scope.StudentName,
