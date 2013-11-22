@@ -7,10 +7,12 @@
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 		<!-- AngularJS -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
 
 		<!-- Local JS's -->
 		<script src="assets/js/config.js"></script>
+		<script src="assets/js/ctrl/core.js"></script>
 
 		<!-- Mobile Friendly! -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,8 +20,10 @@
 	<body>
 
 		<div class="container">
-			<h1>Howdy World -- {{Name}}</h1>
-			<input ng-model="Name" />
+
+			<!-- Partials are Injected Here -->
+			<div ng-view></div>
+
 		</div>
 		
 	</body>
