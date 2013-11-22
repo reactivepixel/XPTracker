@@ -8,11 +8,29 @@ App.controller('CtrlCore', ['$scope', '$firebase', function( $scope, $firebase )
 
 App.controller('CtrlStudentDetail', ['$scope', '$routeParams', '$firebase', function( $scope, $routeParams, $firebase ){
 	
-	var targetID = $routeParams.id;
-	console.log($scope.Students);
+	
+	
 
-	$scope.Students
+	var studentWatch = $scope.$watch('Students', function() {
+		// check for a student id match
+		if($scope.matchStudentID({ id : $routeParams.id })){
+			studentWatch();
+		}
+	});
 
+	$scope.matchStudentID = function (args) {
+
+		// Loop All students lookign for match
+		for(FBID in $scope.Students){
+			var student = $scope.Students[FBID];
+			if( student.id == args.id ) {
+
+				//On match establish $scope.Student
+				$scope.Student = student;
+				return true;
+			}
+		}
+	}
 
 
 }]);
